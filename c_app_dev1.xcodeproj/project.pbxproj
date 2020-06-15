@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D1609316249701DE003BCED7 /* myObject.c in Sources */ = {isa = PBXBuildFile; fileRef = D1609315249701DE003BCED7 /* myObject.c */; };
+		D16093202497192A003BCED7 /* myObject.c in Sources */ = {isa = PBXBuildFile; fileRef = D160931F2497192A003BCED7 /* myObject.c */; };
 		D1C6299224698499002BE5E3 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C6299124698499002BE5E3 /* GLUT.framework */; };
 		D1C62994246984A1002BE5E3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C62993246984A1002BE5E3 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
@@ -25,7 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D1609315249701DE003BCED7 /* myObject.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = myObject.c; sourceTree = "<group>"; };
+		D160931F2497192A003BCED7 /* myObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = myObject.c; sourceTree = "<group>"; };
 		D1C6298624698474002BE5E3 /* c_app_dev1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = c_app_dev1; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C6299124698499002BE5E3 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		D1C62993246984A1002BE5E3 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -64,7 +64,7 @@
 		D1C6298824698474002BE5E3 /* c_app_dev1 */ = {
 			isa = PBXGroup;
 			children = (
-				D1609315249701DE003BCED7 /* myObject.c */,
+				D160931F2497192A003BCED7 /* myObject.c */,
 			);
 			path = c_app_dev1;
 			sourceTree = "<group>";
@@ -135,7 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1609316249701DE003BCED7 /* myObject.c in Sources */,
+				D16093202497192A003BCED7 /* myObject.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
