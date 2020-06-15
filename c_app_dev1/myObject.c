@@ -4,19 +4,18 @@
 #include <OpenGL/opengl.h>
 #include <GLUT/GLUT.h>
 
-GLfloat pos0[] = { 2.0, 1.0, -5.0, 1.0 };
-GLfloat pos1[] = { 1.0, 1.0, -5.0, 0.0 };
+GLfloat pos0[] = { 2.0, 1.5, -1.0, 1.0 };
 GLfloat red[] = { 1.0, 0.0, 0.0, 1.0 };
 GLfloat green[] = { 0.0, 1.0, 0.0, 1.0 };
 GLfloat blue[] = { 0.0, 0.0, 1.0, 1.0 };
 GLfloat white[] = { 1.0, 1.0, 1.0, 1.0 };
 GLfloat black[] = { .1, .1, .1, 1.0 };
-GLfloat gray[] = { 0.5, 0.5, 0.5, 1.0 };
+GLfloat gray[] = { 0.3, 0.3, 0.3, 1.0 };
 
 GLfloat train_metal[] = { 0.9, 0.9, 0.9, 1.0 };
 GLfloat train_color[] = {(9.0*16.0+9.0)/255.0, (13.0*16.0+13.0)/255.0, 0.0, 1.0 };
-GLfloat window_color[] = {188.0/255, 226.0/255, 232.0/255, 1.0  };
-GLfloat light_color[] = {1.0, 0.95, 0.5, 1.0  };
+GLfloat window_color[] = {188.0/255, 226.0/255, 232.0/255, 1.0 };
+GLfloat light_color[] = {1.0, 0.95, 0.5, 1.0 };
 
 void display(void)
 {
@@ -24,16 +23,17 @@ void display(void)
 
     //電車のメインの直方体
     glMaterialfv(GL_FRONT, GL_AMBIENT, train_metal);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, train_metal);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, white);
+    glMaterialf(GL_FRONT, GL_SHININESS, 10.0);
     glPushMatrix();
     glScalef(1, 1, 4);
     glutSolidCube(1);
     glPopMatrix();
     
     //電車の下の車輪部分
-    glMaterialfv(GL_FRONT, GL_AMBIENT, black);
+    glMaterialfv(GL_FRONT, GL_AMBIENT, train_metal);
     glPushMatrix();
-    glTranslatef(0, -1.5, 0);
+    glTranslatef(0, -0.5, 0);
     glScalef(0.8, 0.2, 4);
     glutSolidCube(1);
     glPopMatrix();
@@ -172,28 +172,26 @@ void init(void)
     glCullFace(GL_BACK);
 
     glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, gray);
+    glEnable(GL_LIGHT0);    //光源位置の指定
     glLightfv(GL_LIGHT0, GL_POSITION, pos0);
-
-    glEnable(GL_LIGHT1);
-    glLightfv(GL_LIGHT1, GL_SPECULAR, gray);
-    glLightfv(GL_LIGHT1, GL_POSITION, pos0);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, white);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, gray);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, gray);
     
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(30.0, 1.0, 1.0, 100.0);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    gluLookAt(-3.0, 1.0, 6.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+    //カメラ位置の指定
+    gluLookAt(-3.0, 0, 6.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 }
 
 int main(int argc, char *argv[])
 {
     glutInit(&argc, argv);
-    //glutInitDisplayMode(GLUT_RGBA);
     glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
-    glutCreateWindow("Yamanote Line");
+    glutCreateWindow("Yamanotesen");
     glutDisplayFunc(display);
     init();
     glutMainLoop();
